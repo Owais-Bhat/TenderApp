@@ -12,18 +12,6 @@ A mobile application for managing tenders, bids, and contracts. Built with React
 - Admin dashboard with analytics
 - Secure authentication
 
-## Demo Accounts
-
-For testing purposes, the app comes with pre-configured demo accounts:
-
-### Admin Account
-- **Email**: admin@demo.com
-- **Password**: admin123
-
-### User Account
-- **Email**: user@demo.com
-- **Password**: user123
-
 ## Demo Data
 
 The app is pre-loaded with 20 sample tenders spanning various categories and statuses:
