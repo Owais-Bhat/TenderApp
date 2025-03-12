@@ -215,11 +215,13 @@ const RegisterScreen = ({ navigation }) => {
             {confirmPasswordError ? <HelperText type="error">{confirmPasswordError}</HelperText> : null}
             
             <View style={styles.checkboxContainer}>
+              <View style={{  backgroundColor: "#BCCCDC" , borderRadius: 50 }}>
               <Checkbox
                 status={isAdmin ? 'checked' : 'unchecked'}
                 onPress={() => setIsAdmin(!isAdmin)}
                 color="#3498db"
               />
+              </View>
               <Text style={styles.checkboxLabel}>Register as Admin</Text>
             </View>
             
@@ -242,10 +244,7 @@ const RegisterScreen = ({ navigation }) => {
             
             <Divider style={styles.divider} />
             
-            <View style={styles.demoContainer}>
-              <Text style={styles.demoTitle}>Demo Accounts Available</Text>
-              <Text style={styles.demoText}>Check the login screen for demo account credentials</Text>
-            </View>
+           
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
