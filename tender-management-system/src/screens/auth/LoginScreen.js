@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView, Alert } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView, Alert, SafeAreaView } from 'react-native';
 import { TextInput, Button, Text, HelperText, Checkbox, Divider } from 'react-native-paper';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons} from '@expo/vector-icons';
 import { useAuth } from '../../context/AuthContext';
 import { StatusBar } from 'expo-status-bar';
 
@@ -79,7 +79,7 @@ const LoginScreen = ({ navigation }) => {
   };
   
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar style="dark" />
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -87,7 +87,7 @@ const LoginScreen = ({ navigation }) => {
       >
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <View style={styles.logoContainer}>
-            <MaterialCommunityIcons name="briefcase-outline" size={80} color="#3498db" />
+            <Ionicons name="briefcase-outline" size={80} color="#3498db" />
             <Text style={styles.logoText}>Tender Management System</Text>
           </View>
           
@@ -129,11 +129,16 @@ const LoginScreen = ({ navigation }) => {
             {passwordError ? <HelperText type="error">{passwordError}</HelperText> : null}
             
             <View style={styles.checkboxContainer}>
-              <Checkbox
+              <View style={{  backgroundColor: "#BCCCDC" , borderRadius: 50 }}>
+                <Checkbox
                 status={isAdmin ? 'checked' : 'unchecked'}
                 onPress={() => setIsAdmin(!isAdmin)}
                 color="#3498db"
+               
+                 
+
               />
+              </View>
               <Text style={styles.checkboxLabel}>Login as Admin</Text>
             </View>
             
@@ -154,23 +159,12 @@ const LoginScreen = ({ navigation }) => {
               </TouchableOpacity>
             </View>
             
-            <Divider style={styles.divider} />
             
-            <View style={styles.demoContainer}>
-              <Text style={styles.demoTitle}>Demo Accounts</Text>
-              <View style={styles.demoAccount}>
-                <Text style={styles.demoLabel}>Admin: </Text>
-                <Text>admin@demo.com / admin123</Text>
-              </View>
-              <View style={styles.demoAccount}>
-                <Text style={styles.demoLabel}>User: </Text>
-                <Text>user@demo.com / user123</Text>
-              </View>
-            </View>
+           
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -224,10 +218,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 10,
+    
   },
   checkboxLabel: {
     marginLeft: 8,
     color: '#7f8c8d',
+    
   },
   button: {
     marginTop: 20,
